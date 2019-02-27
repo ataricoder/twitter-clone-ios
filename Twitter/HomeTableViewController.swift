@@ -17,6 +17,7 @@ class HomeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadTweet()
 
     }
     
@@ -33,6 +34,8 @@ class HomeTableViewController: UITableViewController {
             for tweet in tweets {
                 self.tweetArray.append(tweet)
             }
+            
+            self.tableView.reloadData()
             
         }, failure: { (Error) in
             print("Could not retrieve tweets! oh no!!")
@@ -52,8 +55,18 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCellTableViewCell
         
-        cell.userNameLabel.text = "Some name"
-        cell.tweetContent.text = "Something"
+        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
+        
+        
+        cell.userNameLabel.text = user["name"] as? String
+        cell.tweetContent.text = tweetArray[indexPath.row]["text"] as? String
+        
+        let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
+        let data = try? Data(contentsOf: imageUrl!)
+        
+        if let imageData = data {
+            cell.profileImageView.image = UIImage(data: imageData)
+        }
         
         
         
