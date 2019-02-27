@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="108" y="149.77511244377811"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="QwI-Fv-mzy">
             <objects>
-                <tableViewController id="zJX-hI-D4E" sceneMemberID="viewController">
+                <tableViewController id="zJX-hI-D4E" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XqQ-gM-1hG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,7 +70,11 @@
                             <outlet property="delegate" destination="zJX-hI-D4E" id="y4L-Pv-ma1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="xD2-2n-jCu"/>
+                    <navigationItem key="navigationItem" title="Home" id="xD2-2n-jCu">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="XlM-Zy-CO1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQe-bm-exp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,6 +87,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5wW-1G-ICx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="zJX-hI-D4E" kind="relationship" relationship="rootViewController" id="dQy-hU-ZIx"/>
