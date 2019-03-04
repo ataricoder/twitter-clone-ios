@@ -14,6 +14,7 @@ class HomeTableViewController: UITableViewController {
     var numberOfTweet: Int!
     
     let myRefreshControl = UIRefreshControl()
+
     
     
 
